@@ -9,5 +9,6 @@ target 'CoreStorage' do
 
 pod 'SDWebImage', '~> 5.0'
 pod 'Alamofire', '~> 5.4'
+pod 'RealmSwift'
 
 end
