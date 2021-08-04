@@ -22,7 +22,6 @@ class HomeVC: BaseViewController {
         
         self.homeModel.fetchNews()
         bindViewModel()
-        print(self.homeModel.newsArticles)
     }
     
     func setupTableView() {
