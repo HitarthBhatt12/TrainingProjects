@@ -18,9 +18,9 @@ struct NewsModel: Codable {
     
     func store() {
         let handler = DatabaseHandler.shared
-        let news = handler.add(NewsData.self)
-        news?.status = status
-        news?.totalResults = Int64(totalResults ?? 0)
+//        let news = handler.add(NewsData.self)
+//        news?.status = status
+//        news?.totalResults = Int64(totalResults ?? 0)
     }
     
 }
@@ -39,18 +39,18 @@ struct Article: Codable {
     }
     
     func storeArticle() {
-        let availData = DatabaseHandler.shared.fetch(NewsArticle.self)
-        
-        if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
-            guard let article = DatabaseHandler.shared.add(NewsArticle.self) else { return }
-            article.title = title
-            article.articleDescription = articleDescription
-            article.author = author
-            
-            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
-            article.urlToImage = imageData
-            DatabaseHandler.shared.save()
-        }
+//        let availData = DatabaseHandler.shared.fetch(NewsArticle.self)
+//
+//        if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
+//            guard let article = DatabaseHandler.shared.add(NewsArticle.self) else { return }
+//            article.title = title
+//            article.articleDescription = articleDescription
+//            article.author = author
+//
+//            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
+//            article.urlToImage = imageData
+//            DatabaseHandler.shared.save()
+//        }
         
     }
     

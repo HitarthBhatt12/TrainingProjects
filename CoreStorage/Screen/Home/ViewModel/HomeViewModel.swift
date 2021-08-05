@@ -39,10 +39,10 @@ class HomeViewModel {
     
     
     func fetchLocalData() {
-        let newsResult = DatabaseHandler.shared.fetch(NewsData.self)
-        let articleResult = DatabaseHandler.shared.fetch(NewsArticle.self)
-        newsArticles = articleResult
-        newsData = newsResult
+//        let newsResult = DatabaseHandler.shared.fetch(NewsData.self)
+//        let articleResult = DatabaseHandler.shared.fetch(NewsArticle.self)
+//        newsArticles = articleResult
+//        newsData = newsResult
         print(newsArticles?.count ?? 0)
     }
     
