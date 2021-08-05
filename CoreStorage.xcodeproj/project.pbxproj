@@ -38,8 +38,8 @@
 		1DC5CA3326B8F7DF0090155D /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA2F26B8F7DF0090155D /* APIRouter.swift */; };
 		1DC5CA3426B8F7DF0090155D /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA3026B8F7DF0090155D /* URLs.swift */; };
 		1DC5CA3626B8F7E90090155D /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA3526B8F7E90090155D /* Dynamic.swift */; };
-		1DC5CA3826B8F8250090155D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA3726B8F8250090155D /* User.swift */; };
 		1DC5CA3A26B8F9150090155D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA3926B8F9150090155D /* CustomButton.swift */; };
+		1DF35CD926BB796E0062182D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF35CD826BB796E0062182D /* User.swift */; };
 		4C54481CF6D527BD45335FD7 /* Pods_CoreStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8968371233A054D74DE2C095 /* Pods_CoreStorage.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,8 +77,8 @@
 		1DC5CA2F26B8F7DF0090155D /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		1DC5CA3026B8F7DF0090155D /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		1DC5CA3526B8F7E90090155D /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
-		1DC5CA3726B8F8250090155D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1DC5CA3926B8F9150090155D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1DF35CD826BB796E0062182D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8968371233A054D74DE2C095 /* Pods_CoreStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A9BE3CC945591426CAD970 /* Pods-CoreStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreStorage.release.xcconfig"; path = "Target Support Files/Pods-CoreStorage/Pods-CoreStorage.release.xcconfig"; sourceTree = "<group>"; };
 		E5F777B175876D49B49328E9 /* Pods-CoreStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreStorage.debug.xcconfig"; path = "Target Support Files/Pods-CoreStorage/Pods-CoreStorage.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		1D3C552826B8082E003B2C0C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1DC5CA3726B8F8250090155D /* User.swift */,
+				1DF35CD826BB796E0062182D /* User.swift */,
 				1D6BAF6826B96044006D3F0C /* News.swift */,
 			);
 			path = Model;
@@ -442,9 +442,9 @@
 				1D7E72C926BA29EF002975FA /* DatabaseHandler.swift in Sources */,
 				1D2C628626B8F75E0026D31C /* StoryBoarded.swift in Sources */,
 				1D2C628826B8F75E0026D31C /* AppCoordinator.swift in Sources */,
-				1DC5CA3826B8F8250090155D /* User.swift in Sources */,
 				1DC5CA3226B8F7DF0090155D /* Network.swift in Sources */,
 				1D3C551326B80686003B2C0C /* CoreStorage.xcdatamodeld in Sources */,
+				1DF35CD926BB796E0062182D /* User.swift in Sources */,
 				1D2C628726B8F75E0026D31C /* HomeCoordinator.swift in Sources */,
 				1D6BAF5A26B8FF74006D3F0C /* AddUserCoordinator.swift in Sources */,
 				1D3C550B26B80686003B2C0C /* SceneDelegate.swift in Sources */,
