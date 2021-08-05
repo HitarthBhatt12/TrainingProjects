@@ -26,7 +26,6 @@ class HomeViewModel {
                 
                 guard  let newArticles = data.articles else { return }
                 
-                data.store()
                 newArticles.forEach { $0.storeArticle() }
                 
                 self.fetchLocalData()

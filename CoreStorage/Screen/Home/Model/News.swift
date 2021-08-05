@@ -16,13 +16,6 @@ struct NewsModel: Codable {
     let totalResults: Int?
     var articles: [Article]?
     
-    func store() {
-        let handler = DatabaseHandler.shared
-//        let news = handler.add(NewsData.self)
-//        news?.status = status
-//        news?.totalResults = Int64(totalResults ?? 0)
-    }
-    
 }
 
 // MARK: - Article
