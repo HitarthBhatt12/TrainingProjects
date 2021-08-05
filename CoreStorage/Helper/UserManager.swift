@@ -12,8 +12,5 @@ class UserManager {
     
     static let shared = UserManager()
     
-    var context: NSManagedObjectContext {
-     return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    }
     
 }
