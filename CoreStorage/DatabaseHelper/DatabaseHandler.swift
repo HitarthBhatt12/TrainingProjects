@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FMDB
 
 
 class DatabaseHandler {
@@ -14,11 +15,21 @@ class DatabaseHandler {
     static var shared: DatabaseHandler = DatabaseHandler()
     var realm: Realm?
     
+    let fileManager = FileManager.default
+    var database: FMDatabase?
+    var databaseURL: URL?
+    
     init() {
         do {
-            self.realm = try Realm()
+            databaseURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("DBConstants.dbFileName")
         } catch {
-            print("Error in setup Realm ", error.localizedDescription)
+            print(error)
+        }
+        if let dbURL = databaseURL {
+            if !fileManager.fileExists(atPath: dbURL.path) {
+                fileManager.createFile(atPath: dbURL.path, contents: nil, attributes: [:])
+            }
+            database = FMDatabase(url: dbURL)
         }
     }
     

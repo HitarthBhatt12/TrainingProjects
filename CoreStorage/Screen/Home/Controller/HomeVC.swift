@@ -48,27 +48,6 @@ class HomeVC: BaseViewController {
             print(error)
         }
         
-//        guard let news = DatabaseHandler.shared.add(NewsData.self) else {return}
-//
-//        for _ in 0...4 {
-//            guard let article = DatabaseHandler.shared.add(NewsArticle.self) else {return}
-//
-//            article.author = "Hitarth Bhatt"
-//            article.articleDescription = "Just Chekcing Another"
-//            article.title = "Creating Anothr Set"
-//            article.urlToImage = "Awesome"
-//            article.parent = news
-//            news.status = "ok"
-//            news.totalResults = 20
-//        }
-//
-//
-//        news.addToArticles(article)
-//        DatabaseHandler.shared.save()
-//        let result = DatabaseHandler.shared.fetch(NewsData.self)
-//        let result2 = DatabaseHandler.shared.fetch(NewsArticle.self)
-//        print(result)
-        
     }
     
     
