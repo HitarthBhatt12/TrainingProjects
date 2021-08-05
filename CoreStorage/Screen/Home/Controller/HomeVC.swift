@@ -79,7 +79,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             
             cell.configure(title: data.title ?? "",
                            desc: data.articleDescription ?? "",
-                           image: data.urlToImage ?? Data(),
+                           image: Data(),
                            authorName: data.author ?? "")
             
         return cell
@@ -105,7 +105,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
             guard let data = (self.homeModel.newsArticles?[indexPath.row]) else { return }
-            DatabaseHandler.shared.delete(data)
+//            DatabaseHandler.shared.delete(data)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }

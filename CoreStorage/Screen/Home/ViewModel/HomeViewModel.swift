@@ -11,7 +11,7 @@ import RealmSwift
 class HomeViewModel {
     
     var limit: Int?
-    var newsArticles: Results<NewsArticle>?
+    var newsArticles: [Article]?
     var onSuccess = Dynamic<Void>(())
     var onError = Dynamic<String>("")
     var currentIndex = 1
@@ -38,7 +38,7 @@ class HomeViewModel {
     
     
     func fetchLocalData() {
-        self.newsArticles = DatabaseHandler.shared.fetch(NewsArticle.self)
+        self.newsArticles = DatabaseHandler.shared.fetch(from: "Article")
         print(newsArticles?.count ?? 0)
     }
     

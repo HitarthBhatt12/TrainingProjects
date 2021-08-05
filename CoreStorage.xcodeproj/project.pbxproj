@@ -19,6 +19,7 @@
 		1D3C551826B80687003B2C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C551626B80687003B2C0C /* LaunchScreen.storyboard */; };
 		1D3F9C5126B8F5AF00C370EA /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F9C4F26B8F5AF00C370EA /* UserViewCell.swift */; };
 		1D3F9C5226B8F5AF00C370EA /* UserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3F9C5026B8F5AF00C370EA /* UserViewCell.xib */; };
+		1D69AC8526BC064600EAC455 /* Article.db in Resources */ = {isa = PBXBuildFile; fileRef = 1D69AC8426BC064600EAC455 /* Article.db */; };
 		1D6BAF5626B8FE77006D3F0C /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6BAF5526B8FE76006D3F0C /* AddUser.storyboard */; };
 		1D6BAF5826B8FEA2006D3F0C /* AddUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BAF5726B8FEA2006D3F0C /* AddUserVC.swift */; };
 		1D6BAF5A26B8FF74006D3F0C /* AddUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BAF5926B8FF74006D3F0C /* AddUserCoordinator.swift */; };
@@ -54,6 +55,7 @@
 		1D3C551926B80687003B2C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D3F9C4F26B8F5AF00C370EA /* UserViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		1D3F9C5026B8F5AF00C370EA /* UserViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewCell.xib; sourceTree = "<group>"; };
+		1D69AC8426BC064600EAC455 /* Article.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Article.db; sourceTree = "<group>"; };
 		1D6BAF5526B8FE76006D3F0C /* AddUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
 		1D6BAF5726B8FEA2006D3F0C /* AddUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserVC.swift; sourceTree = "<group>"; };
 		1D6BAF5926B8FF74006D3F0C /* AddUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserCoordinator.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		1D6BAF6A26B9738A006D3F0C /* DatabaseHelper */ = {
 			isa = PBXGroup;
 			children = (
+				1D69AC8426BC064600EAC455 /* Article.db */,
 				1DAB50B926BA7B4800631EDA /* NewsArticle.swift */,
 				1D7E72C826BA29EF002975FA /* DatabaseHandler.swift */,
 			);
@@ -355,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D69AC8526BC064600EAC455 /* Article.db in Resources */,
 				1D3C551826B80687003B2C0C /* LaunchScreen.storyboard in Resources */,
 				1D3C551526B80687003B2C0C /* Assets.xcassets in Resources */,
 				1D3C551026B80686003B2C0C /* Home.storyboard in Resources */,

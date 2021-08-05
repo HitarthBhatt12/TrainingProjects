@@ -7,8 +7,12 @@
 
 
 import Foundation
+import FMDB
 import RealmSwift
 
+protocol ResultSet {
+    init(resultSet rs: FMResultSet)
+}
 
 // MARK: - Welcome
 struct NewsModel: Codable {
@@ -19,7 +23,7 @@ struct NewsModel: Codable {
 }
 
 // MARK: - Article
-struct Article: Codable {
+class Article: Codable, ResultSet {
     let author: String?
     let title: String?
     let articleDescription: String?
@@ -31,24 +35,39 @@ struct Article: Codable {
         case urlToImage
     }
     
+    init(author: String?, title: String?, articleDescription: String?, urlToImage: String?) {
+        self.author = author
+            self.title = title
+            self.articleDescription = articleDescription
+            self.urlToImage = urlToImage
+    }
+    
+    required init(resultSet rs: FMResultSet) {
+        self.author = rs.string(forColumn: "author")
+        self.title = rs.string(forColumn: "title")
+        self.articleDescription = rs.string(forColumn: "articleDescription")
+        self.urlToImage = rs.string(forColumn: "urlToImage")
+    }
+    
+    
     func storeArticle() {
-        guard let availData = DatabaseHandler.shared.fetch(NewsArticle.self) else { return }
+        let availData: [Article] = DatabaseHandler.shared.fetch(from: "Article")
 
         if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
-            guard let article = DatabaseHandler.shared.add(NewsArticle.self) else { return }
-            article.title = title
-            article.articleDescription = articleDescription
-            article.author = author
+            let article = Article(author: author,
+                                  title: title,
+                                  articleDescription: articleDescription,
+                                  urlToImage: urlToImage)
 
-            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
-            article.urlToImage = imageData
+//            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
+//            article.urlToImage = imageData
             DatabaseHandler.shared.save(article)
         }
         
     }
     
     
-    func checkAvail(availData: Results<NewsArticle>, value: String) -> Bool {
+    func checkAvail(availData: [Article], value: String) -> Bool {
         for data in availData {
             if data.title == title {
                 return true
