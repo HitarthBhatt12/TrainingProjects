@@ -7,7 +7,7 @@
 
 
 import Foundation
-import SDWebImage
+import RealmSwift
 
 
 // MARK: - Welcome
@@ -32,23 +32,23 @@ struct Article: Codable {
     }
     
     func storeArticle() {
-//        let availData = DatabaseHandler.shared.fetch(NewsArticle.self)
-//
-//        if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
-//            guard let article = DatabaseHandler.shared.add(NewsArticle.self) else { return }
-//            article.title = title
-//            article.articleDescription = articleDescription
-//            article.author = author
-//
-//            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
-//            article.urlToImage = imageData
-//            DatabaseHandler.shared.save()
-//        }
+        guard let availData = DatabaseHandler.shared.fetch(NewsArticle.self) else { return }
+
+        if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
+            guard let article = DatabaseHandler.shared.add(NewsArticle.self) else { return }
+            article.title = title
+            article.articleDescription = articleDescription
+            article.author = author
+
+            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
+            article.urlToImage = imageData
+            DatabaseHandler.shared.save(article)
+        }
         
     }
     
     
-    func checkAvail(availData: [NewsArticle], value: String) -> Bool {
+    func checkAvail(availData: Results<NewsArticle>, value: String) -> Bool {
         for data in availData {
             if data.title == title {
                 return true

@@ -125,9 +125,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
-            self.homeModel.newsArticles?.remove(at: indexPath.row)
             guard let data = (self.homeModel.newsArticles?[indexPath.row]) else { return }
-//            DatabaseHandler.shared.delete(data)
+            DatabaseHandler.shared.delete(data)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }
@@ -141,7 +140,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let data = self.homeModel.newsArticles else {return}
-        guard let limit = self.homeModel.newsData?.first?.totalResults else {return}
+        guard let limit = self.homeModel.limit else {return}
         
         if (indexPath.row == data.count - 1), (data.count < limit)  {
             self.tableView.tableFooterView = loadingView()

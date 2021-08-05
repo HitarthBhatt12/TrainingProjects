@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class HomeViewModel {
     
-    var newsData: [NewsData]?
-    var newsArticles: [NewsArticle]?
+    var limit: Int?
+    var newsArticles: Results<NewsArticle>?
     var onSuccess = Dynamic<Void>(())
     var onError = Dynamic<String>("")
     var currentIndex = 1
@@ -24,8 +24,8 @@ class HomeViewModel {
             switch result {
             case .success(let data):
                 
+                self.limit = data.totalResults
                 guard  let newArticles = data.articles else { return }
-                
                 newArticles.forEach { $0.storeArticle() }
                 
                 self.fetchLocalData()
@@ -38,18 +38,11 @@ class HomeViewModel {
     
     
     func fetchLocalData() {
-//        let newsResult = DatabaseHandler.shared.fetch(NewsData.self)
-//        let articleResult = DatabaseHandler.shared.fetch(NewsArticle.self)
-//        newsArticles = articleResult
-//        newsData = newsResult
+        self.newsArticles = DatabaseHandler.shared.fetch(NewsArticle.self)
         print(newsArticles?.count ?? 0)
     }
     
     
-    
-    func deleteArticle() {
-        
-    }
     
     
 }
