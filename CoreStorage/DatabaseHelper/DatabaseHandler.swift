@@ -11,6 +11,13 @@ import RealmSwift
 
 class DatabaseHandler {
     
+    var realm: Realm?
+    
+    init() {
+        
+        
+        
+    }
     
     func add<T: Object>(_ type: T.Type) -> T? {
         let object = T()
