@@ -28,6 +28,8 @@ class Article: Codable, ResultSet {
     let title: String?
     let articleDescription: String?
     let urlToImage: String?
+    var imageToData = Data()
+    var id = 0
     
     enum CodingKeys: String, CodingKey {
         case author, title
@@ -40,13 +42,16 @@ class Article: Codable, ResultSet {
             self.title = title
             self.articleDescription = articleDescription
             self.urlToImage = urlToImage
+        self.imageToData = urlToData(url: urlToImage ?? "") ?? Data()
     }
     
     required init(resultSet rs: FMResultSet) {
         self.author = rs.string(forColumn: "author")
         self.title = rs.string(forColumn: "title")
         self.articleDescription = rs.string(forColumn: "articleDescription")
-        self.urlToImage = rs.string(forColumn: "urlToImage")
+        self.urlToImage = ""
+        self.imageToData = rs.data(forColumn: "urlToImage") ?? Data()
+        self.id = Int(rs.int(forColumn: "id"))
     }
     
     
@@ -54,14 +59,15 @@ class Article: Codable, ResultSet {
         let availData: [Article] = DatabaseHandler.shared.fetch(from: "Article")
 
         if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
+            
             let article = Article(author: author,
                                   title: title,
                                   articleDescription: articleDescription,
                                   urlToImage: urlToImage)
 
-//            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
-//            article.urlToImage = imageData
-            DatabaseHandler.shared.save(article)
+            guard let imageData = urlToData(url: urlToImage ?? "") else { return }
+            
+            DatabaseHandler.shared.save(article, imageData: imageData)
         }
         
     }

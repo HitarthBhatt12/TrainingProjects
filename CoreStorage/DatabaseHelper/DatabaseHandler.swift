@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import RealmSwift
 import FMDB
 
 
 class DatabaseHandler {
     
     static var shared: DatabaseHandler = DatabaseHandler()
-    var realm: Realm?
     
     let fileManager = FileManager.default
     var database: FMDatabase?
@@ -26,6 +24,7 @@ class DatabaseHandler {
             print(error)
         }
         if let dbURL = databaseURL {
+            print(dbURL)
             if !fileManager.fileExists(atPath: dbURL.path) {
                 let bundle = Bundle.main.resourceURL
                 guard let dbPath = bundle?.appendingPathComponent("Article.db") else {return}
@@ -39,17 +38,12 @@ class DatabaseHandler {
             database = FMDatabase(url: dbURL)
         }
         
-        do {
-            self.realm = try Realm()
-        } catch {
-            print("Realm ", error.localizedDescription)
-        }
-        
     }
     
     func fetch<T: ResultSet>(from table: String) -> [T] {
         var items: [T] = []
         guard let database = database else { return items }
+        database.open()
         let sql = "SELECT * FROM \(table)"
         do {
             let rs: FMResultSet = try database.executeQuery(sql, values: nil)
@@ -59,23 +53,27 @@ class DatabaseHandler {
         } catch {
             print(error)
         }
+        database.close()
         return items
     }
     
-    func save(_ data: Article) {
+    func save(_ data: Article, imageData: Data) {
         database?.open()
         
-        let isSave = database?.executeUpdate("INSERT INTO Article (title,author,articleDescription,urlToImage) VALUES (?,?,?,?)", withArgumentsIn: [data.title ?? "",
-                                                data.author ?? "",
-                                                data.articleDescription ?? "",
-                                                data.urlToImage ?? ""])
+        database?.executeUpdate("INSERT INTO Article (title,author,articleDescription,urlToImage) VALUES (?,?,?,?)", withArgumentsIn: [data.title ?? "",
+                                data.author ?? "",
+                                data.articleDescription ?? "",
+                                imageData])
         
         database?.close()
-        print(isSave)
     }
     
-    func delete(_ data: Object) {
-//        self.realm?.delete(data)
+    func delete(_ id: Int, from table: String) {
+        guard let database = database else { return }
+        database.open()
+        let query = "DELETE from \(table) where id = '\(id)'"
+        database.executeUpdate(query, withArgumentsIn: [])
+        database.close()
     }
     
     

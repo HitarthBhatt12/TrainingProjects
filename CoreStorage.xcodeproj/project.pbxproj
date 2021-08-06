@@ -29,7 +29,6 @@
 		1D6BAF6726B920F6006D3F0C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BAF6626B920F6006D3F0C /* UserManager.swift */; };
 		1D6BAF6926B96044006D3F0C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BAF6826B96044006D3F0C /* News.swift */; };
 		1D7E72C926BA29EF002975FA /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E72C826BA29EF002975FA /* DatabaseHandler.swift */; };
-		1DAB50BB26BA7B4800631EDA /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAB50B926BA7B4800631EDA /* NewsArticle.swift */; };
 		1DC5CA3126B8F7DF0090155D /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA2D26B8F7DF0090155D /* APIProtocol.swift */; };
 		1DC5CA3226B8F7DF0090155D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA2E26B8F7DF0090155D /* Network.swift */; };
 		1DC5CA3326B8F7DF0090155D /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5CA2F26B8F7DF0090155D /* APIRouter.swift */; };
@@ -65,7 +64,6 @@
 		1D6BAF6626B920F6006D3F0C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1D6BAF6826B96044006D3F0C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		1D7E72C826BA29EF002975FA /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
-		1DAB50B926BA7B4800631EDA /* NewsArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
 		1DC5CA2D26B8F7DF0090155D /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		1DC5CA2E26B8F7DF0090155D /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		1DC5CA2F26B8F7DF0090155D /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				1D69AC8426BC064600EAC455 /* Article.db */,
-				1DAB50B926BA7B4800631EDA /* NewsArticle.swift */,
 				1D7E72C826BA29EF002975FA /* DatabaseHandler.swift */,
 			);
 			path = DatabaseHelper;
@@ -424,7 +421,6 @@
 				1DC5CA3626B8F7E90090155D /* Dynamic.swift in Sources */,
 				1D6BAF5F26B907C3006D3F0C /* BaseViewController.swift in Sources */,
 				1DC5CA3A26B8F9150090155D /* CustomButton.swift in Sources */,
-				1DAB50BB26BA7B4800631EDA /* NewsArticle.swift in Sources */,
 				1D3F9C5126B8F5AF00C370EA /* UserViewCell.swift in Sources */,
 				1D6BAF6126B90952006D3F0C /* AddUserViewModel.swift in Sources */,
 				1D3C550926B80686003B2C0C /* AppDelegate.swift in Sources */,
