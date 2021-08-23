@@ -17,3 +17,5 @@ Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout.modulemap
 Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout.release.xcconfig
 Pods/Target Support Files/SwiftLint/SwiftLint.debug.xcconfig
 Pods/Target Support Files/SwiftLint/SwiftLint.release.xcconfig
+AutoLayout.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+AutoLayout.xcworkspace/xcuserdata/hitarth.bhatt.xcuserdatad/UserInterfaceState.xcuserstate

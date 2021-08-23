@@ -452,10 +452,6 @@
                                 <exclude reference="daJ-ZO-cQN"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="39Q-Kl-UZc"/>
-                                <exclude reference="7f7-b5-9iu"/>
-                                <exclude reference="GTy-LN-YhV"/>
-                                <exclude reference="cHC-KZ-cL9"/>
                                 <exclude reference="ZFz-iC-Y1d"/>
                                 <exclude reference="8as-80-VoS"/>
                                 <exclude reference="KGv-3G-Tna"/>
@@ -468,6 +464,10 @@
                                 <exclude reference="n2M-Ws-PyO"/>
                                 <exclude reference="nyT-aU-Iag"/>
                                 <exclude reference="oMT-6G-Kkd"/>
+                                <exclude reference="39Q-Kl-UZc"/>
+                                <exclude reference="7f7-b5-9iu"/>
+                                <exclude reference="GTy-LN-YhV"/>
+                                <exclude reference="cHC-KZ-cL9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -498,13 +498,13 @@
                                 <include reference="daJ-ZO-cQN"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Rlo-ik-aPv"/>
+                                <include reference="TaG-uH-Wug"/>
+                                <include reference="oMT-6G-Kkd"/>
                                 <include reference="39Q-Kl-UZc"/>
                                 <include reference="7f7-b5-9iu"/>
                                 <include reference="GTy-LN-YhV"/>
                                 <include reference="cHC-KZ-cL9"/>
-                                <exclude reference="Rlo-ik-aPv"/>
-                                <include reference="TaG-uH-Wug"/>
-                                <include reference="oMT-6G-Kkd"/>
                             </mask>
                         </variation>
                     </view>
