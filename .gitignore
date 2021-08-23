@@ -1,0 +1,19 @@
+Podfile.lock
+AutoLayout.xcworkspace/contents.xcworkspacedata
+Pods/Manifest.lock
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Pods.xcodeproj/xcuserdata/hitarth.bhatt.xcuserdatad/xcschemes/Pods-AutoLayout.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/hitarth.bhatt.xcuserdatad/xcschemes/SwiftLint.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/hitarth.bhatt.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/SwiftLint/LICENSE
+Pods/SwiftLint/swiftlint
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout-acknowledgements.markdown
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout-acknowledgements.plist
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout-dummy.m
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout-Info.plist
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout-umbrella.h
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout.debug.xcconfig
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout.modulemap
+Pods/Target Support Files/Pods-AutoLayout/Pods-AutoLayout.release.xcconfig
+Pods/Target Support Files/SwiftLint/SwiftLint.debug.xcconfig
+Pods/Target Support Files/SwiftLint/SwiftLint.release.xcconfig
