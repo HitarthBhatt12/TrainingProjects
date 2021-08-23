@@ -18,9 +18,7 @@ class TestViewController: BaseViewController {
         
         setup()
     }
-    
-        
-        
+      
     func setup() {
         
         popButton.setTitle("", for: .normal)
@@ -37,12 +35,11 @@ class TestViewController: BaseViewController {
         
         navigationItem.setRightBarButtonItems([rightBarButtonItem, rightBarButtonItem1], animated: true)
     }
-    
-    
+   
     @objc func popover() {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController( withIdentifier: "pop") as! PopOverViewController
+        guard let vc = sb.instantiateViewController( withIdentifier: "pop") as? PopOverViewController else {return}
 
         vc.modalPresentationStyle = .popover
         
@@ -54,21 +51,11 @@ class TestViewController: BaseViewController {
         present(vc, animated: true, completion: nil)
         
     }
-    
-    
-    
-    
+   
     @IBAction func popToRoot(_ sender: Any) {
         
         navigationController?.popToRootViewController(animated: true)
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
+   
 }

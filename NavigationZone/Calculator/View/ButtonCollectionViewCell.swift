@@ -8,8 +8,7 @@
 import UIKit
 
 class ButtonCollectionViewCell: UICollectionViewCell {
-
-   
+ 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var label: UILabel!
     override func awakeFromNib() {
@@ -23,9 +22,7 @@ class ButtonCollectionViewCell: UICollectionViewCell {
         self.view.backgroundColor = color
         
         self.layer.cornerRadius = 10
-        
-        
+                
     }
     
-
 }

@@ -15,9 +15,8 @@ class CalculatorViewController: UIViewController {
     var previousValue: Int = 0
     var newValue: Int = 0
     var secondValue: Int = 0
-    var actionType: actions = .none
-    
-    
+    var actionType: Actions = .none
+        
     var model: [ButtonOptions] = [ButtonOptions]()
     
     override func viewDidLoad() {
@@ -37,16 +36,14 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
+        
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         print(size.width)
         collectionView.reloadData()
     }
-    
-    
+        
     func setup() {
         
         model.append(.advanceButton(model: AdvanceButton(name: "AC", action: {
@@ -65,8 +62,7 @@ class CalculatorViewController: UIViewController {
             self.showActions(val: "/")
             self.actionType = .divide
         })))
-        
-        
+                
         model.append(.numberButton(model: NumberButton(name: "7", action: {
             self.showValue(val: 7)
         })))
@@ -81,8 +77,7 @@ class CalculatorViewController: UIViewController {
             self.showActions(val: "*")
             self.actionType = .multi
         })))
-        
-        
+                
         model.append(.numberButton(model: NumberButton(name: "6", action: {
             self.showValue(val: 6)
         })))
@@ -97,7 +92,6 @@ class CalculatorViewController: UIViewController {
             self.showActions(val: "-")
             self.actionType = .sub
         })))
-        
         
         model.append(.numberButton(model: NumberButton(name: "3", action: {
             self.showValue(val: 3)
@@ -114,7 +108,6 @@ class CalculatorViewController: UIViewController {
             self.actionType = .add
         })))
         
-        
         model.append(.numberButton(model: NumberButton(name: "0", action: {
             self.showValue(val: 0)
         })))
@@ -128,16 +121,12 @@ class CalculatorViewController: UIViewController {
         
     }
     
-    
-    enum actions {
+    enum Actions {
         
         case none, add, sub, multi, divide
         
     }
-    
 
-    
-    
     func performAction(newVal: Int) {
         
         switch actionType {
@@ -155,8 +144,6 @@ class CalculatorViewController: UIViewController {
         
     }
     
-    
-    
     func showResult() {
         
         if actionType != .none {
@@ -164,33 +151,27 @@ class CalculatorViewController: UIViewController {
         }
         
         self.label.text = String(previousValue)
-        
-        
+            
     }
-    
-    
+        
     func showActions(val: String) {
         
         self.label.text = val
         
     }
-    
-    
+        
     func showValue(val: Int) {
         
         if actionType == .none {
             self.newValue = val
-        }else {
+        } else {
             self.secondValue = val
         }
         
         self.label.text = String(val)
     }
     
-    
-    
 }
-
 
 extension CalculatorViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -200,7 +181,7 @@ extension CalculatorViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as! ButtonCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as? ButtonCollectionViewCell else {return UICollectionViewCell()}
         
         let model = model[indexPath.row]
         
@@ -220,12 +201,9 @@ extension CalculatorViewController: UICollectionViewDelegate, UICollectionViewDa
             
         }
         
-        
-        
         return cell
     }
-    
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
 //        let width = UIScreen.main.bounds.width
@@ -235,8 +213,6 @@ extension CalculatorViewController: UICollectionViewDelegate, UICollectionViewDa
         switch model[indexPath.row].self {
             
         case .numberButton(let model):
-            
-            
             if model.name == "0" {
                 return CGSize(width: (width - 6)/2, height: (height)/5.5)
             }
@@ -248,8 +224,6 @@ extension CalculatorViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -267,7 +241,5 @@ extension CalculatorViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
     }
-    
-    
     
 }

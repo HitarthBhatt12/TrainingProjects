@@ -12,8 +12,7 @@ class ViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var tables: [Table] = []
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,35 +25,21 @@ class ViewController: BaseViewController {
         
         setup()
     }
-
-
     
     func setup() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController( withIdentifier: "calculator") as? CalculatorViewController else {return}
         
         tables.append(   Table(name: "Present", image: "calculator", action: {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController( withIdentifier: "calculator") as! CalculatorViewController
-
             self.navigationController?.present(vc, animated: true, completion: nil)
-            
         }))
         
         tables.append(   Table(name: "Show Calculator", image: "calculator", action: {
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController( withIdentifier: "calculator") as! CalculatorViewController
-
             self.navigationController?.showDetailViewController(vc, sender: self)
-            
         }))
         
         tables.append(   Table(name: "Push Calculator", image: "calculator", action: {
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController( withIdentifier: "calculator") as! CalculatorViewController
-
             self.navigationController?.pushViewController(vc, animated: true)
-            
         }))
         
         tables.append(   Table(name: "Calculator", image: "calculator", action: {
@@ -67,8 +52,6 @@ class ViewController: BaseViewController {
     
 }
 
-
-
 struct Table {
     
     var name: String
@@ -77,13 +60,6 @@ struct Table {
     
 }
 
-
-
-
-
-
-
-
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,12 +67,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return tables.count
     }
     
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserTableViewCell else {return UITableViewCell()}
         
         let data = tables[indexPath.row]
         
@@ -107,8 +80,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tables[indexPath.row].action()
@@ -116,15 +88,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
-    
+        
 }
-

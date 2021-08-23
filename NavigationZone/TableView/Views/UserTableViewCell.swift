@@ -8,8 +8,7 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
-
-    
+ 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var view: UIView!
@@ -24,8 +23,7 @@ class UserTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
+        
     func configure(firstName: String, avatar: String) {
         
         nameLabel.text = firstName
@@ -33,6 +31,5 @@ class UserTableViewCell: UITableViewCell {
         userImage.layer.cornerRadius = 25
         userImage.image = UIImage(systemName: "opticaldisc")
     }
-    
     
 }
