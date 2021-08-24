@@ -14,7 +14,6 @@ let CREATEUSER = "/user/"
 let UPDATEUSER = "/user/"
 let DELETEUSER = "/user/"
 
-
 func getNewsApi(at pageNo: Int) -> String {
     
     let pageNo = String(pageNo)

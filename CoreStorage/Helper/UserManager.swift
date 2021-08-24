@@ -12,5 +12,4 @@ class UserManager {
     
     static let shared = UserManager()
     
-    
 }

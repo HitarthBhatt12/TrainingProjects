@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class HomeViewModel {
     
@@ -36,13 +35,8 @@ class HomeViewModel {
         }
     }
     
-    
     func fetchLocalData() {
         self.newsArticles = DatabaseHandler.shared.fetch(from: "Article")
         print(newsArticles?.count ?? 0)
     }
-    
-    
-    
-    
 }

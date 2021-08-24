@@ -8,7 +8,6 @@
 import UIKit
 import FMDB
 
-
 class DatabaseHandler {
     
     static var shared: DatabaseHandler = DatabaseHandler()
@@ -75,6 +74,5 @@ class DatabaseHandler {
         database.executeUpdate(query, withArgumentsIn: [])
         database.close()
     }
-    
     
 }

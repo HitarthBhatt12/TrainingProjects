@@ -5,10 +5,8 @@
 //  Created by Hitarth Bhatt on 03/08/21.
 //
 
-
 import Foundation
 import FMDB
-import RealmSwift
 
 protocol ResultSet {
     init(resultSet rs: FMResultSet)
@@ -39,9 +37,9 @@ class Article: Codable, ResultSet {
     
     init(author: String?, title: String?, articleDescription: String?, urlToImage: String?) {
         self.author = author
-            self.title = title
-            self.articleDescription = articleDescription
-            self.urlToImage = urlToImage
+        self.title = title
+        self.articleDescription = articleDescription
+        self.urlToImage = urlToImage
         self.imageToData = urlToData(url: urlToImage ?? "") ?? Data()
     }
     
@@ -54,17 +52,16 @@ class Article: Codable, ResultSet {
         self.id = Int(rs.int(forColumn: "id"))
     }
     
-    
     func storeArticle() {
         let availData: [Article] = DatabaseHandler.shared.fetch(from: "Article")
-
+        
         if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
             
             let article = Article(author: author,
                                   title: title,
                                   articleDescription: articleDescription,
                                   urlToImage: urlToImage)
-
+            
             guard let imageData = urlToData(url: urlToImage ?? "") else { return }
             
             DatabaseHandler.shared.save(article, imageData: imageData)
@@ -72,24 +69,18 @@ class Article: Codable, ResultSet {
         
     }
     
-    
     func checkAvail(availData: [Article], value: String) -> Bool {
-        for data in availData {
-            if data.title == title {
-                return true
-            }
+        for data in availData where data.title == title {
+            return true
         }
         return false
     }
     
-    
     func urlToData(url: String) -> Data? {
         if let stringUrl = URL(string: url), let data = try? Data(contentsOf: stringUrl) {
-                return data
-            }
-        return Data()
+            return data
         }
+        return Data()
+    }
     
 }
-
-
