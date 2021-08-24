@@ -29,6 +29,5 @@ class HomeCoordinator: Coordinator {
         let adduserCoordinator = AddUserCoordinator(navigationController: navigationController)
         adduserCoordinator.start()
     }
-    
-    
+        
 }

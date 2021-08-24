@@ -24,6 +24,5 @@ class AddUserCoordinator: Coordinator {
         navigationController.present(addUserVC, animated: true, completion: nil)
         
     }
-    
-    
+        
 }

@@ -5,10 +5,8 @@
 //  Created by Hitarth Bhatt on 03/08/21.
 //
 
-
 import Foundation
 import RealmSwift
-
 
 // MARK: - Welcome
 struct NewsModel: Codable {
@@ -33,13 +31,13 @@ struct Article: Codable {
     
     func storeArticle() {
         guard let availData = DatabaseHandler.shared.fetch(NewsArticle.self) else { return }
-
+        
         if (availData.isEmpty) || !checkAvail(availData: availData, value: title ?? "") {
             guard let article = DatabaseHandler.shared.add(NewsArticle.self) else { return }
             article.title = title
             article.articleDescription = articleDescription
             article.author = author
-
+            
             guard let imageData = urlToData(url: urlToImage ?? "") else { return }
             article.urlToImage = imageData
             DatabaseHandler.shared.save(article)
@@ -47,24 +45,17 @@ struct Article: Codable {
         
     }
     
-    
     func checkAvail(availData: Results<NewsArticle>, value: String) -> Bool {
-        for data in availData {
-            if data.title == title {
-                return true
-            }
+        for data in availData where data.title == title {
+            return true
         }
         return false
     }
     
-    
     func urlToData(url: String) -> Data? {
         if let stringUrl = URL(string: url), let data = try? Data(contentsOf: stringUrl) {
-                return data
-            }
-        return Data()
+            return data
         }
-    
+        return Data()
+    }
 }
-
-

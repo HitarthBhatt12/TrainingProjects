@@ -9,7 +9,6 @@
 import Foundation
 import RealmSwift
 
-
 class NewsArticle: Object {
 
     @objc dynamic var articleDescription: String?

@@ -8,7 +8,6 @@
 import UIKit
 import RealmSwift
 
-
 class DatabaseHandler {
     
     static var shared: DatabaseHandler = DatabaseHandler()
@@ -27,7 +26,6 @@ class DatabaseHandler {
         return object
     }
     
-    
     func fetch<T: Object>(_ type: T.Type) -> Results<T>? {
         let result = realm?.objects(type)
         return result
@@ -38,7 +36,7 @@ class DatabaseHandler {
             try self.realm?.write {
                 realm?.add(data)
             }
-        }catch {
+        } catch {
             print("error in saving data", error.localizedDescription)
         }
     }
@@ -46,6 +44,5 @@ class DatabaseHandler {
     func delete(_ data: Object) {
         self.realm?.delete(data)
     }
-    
     
 }

@@ -11,6 +11,4 @@ import CoreData
 class UserManager {
     
     static let shared = UserManager()
-    
-    
 }

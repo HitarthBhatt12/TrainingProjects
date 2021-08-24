@@ -37,7 +37,7 @@ class AddUserVC: UIViewController, Storyboarded {
                      "email": emailField.text,
                      "image": imageField.text]
         
-        self.addUserModel.addUser(param: param as [String : Any])
+        self.addUserModel.addUser(param: param as [String: Any])
         
     }
     

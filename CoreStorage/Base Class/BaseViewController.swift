@@ -28,8 +28,7 @@ class BaseViewController: UIViewController, Storyboarded {
         setupNavBar()
         
     }
-    
-    
+        
     func setupNavBar() {
         self.navigationController?.navigationBar.barTintColor = .black
         self.navigationController?.navigationBar.tintColor = .white
@@ -37,5 +36,4 @@ class BaseViewController: UIViewController, Storyboarded {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
-    
-}// End of Class
+} // End of Class

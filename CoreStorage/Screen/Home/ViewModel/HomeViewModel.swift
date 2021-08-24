@@ -36,13 +36,9 @@ class HomeViewModel {
         }
     }
     
-    
     func fetchLocalData() {
         self.newsArticles = DatabaseHandler.shared.fetch(NewsArticle.self)
         print(newsArticles?.count ?? 0)
     }
-    
-    
-    
     
 }

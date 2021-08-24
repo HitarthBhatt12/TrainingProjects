@@ -47,11 +47,9 @@ class HomeVC: BaseViewController {
         homeModel.onError.bind { error in
             print(error)
         }
-        
-        
+                
     }
-    
-    
+        
     @IBAction func didTapAdd(_ sender: Any) {
 //        self.coordinator?.goToAddUser()
         let indexPath = IndexPath(row: self.tableView.numberOfRows(inSection: 0) - 1, section: 0)
@@ -62,8 +60,7 @@ class HomeVC: BaseViewController {
     @objc func refresh() {
         self.homeModel.fetchNews()
     }
-    
-    
+        
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
@@ -91,8 +88,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.estimatedRowHeight
     }
@@ -115,14 +111,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         return action
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let data = self.homeModel.newsArticles else {return}
         guard let limit = self.homeModel.limit else {return}
         
-        if (indexPath.row == data.count - 1), (data.count < limit)  {
+        if (indexPath.row == data.count - 1), (data.count < limit) {
             self.tableView.tableFooterView = loadingView()
             self.homeModel.currentIndex += 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -141,6 +136,4 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         spinner.startAnimating()
         return footerView
     }
-    
-    
 }
