@@ -8,7 +8,6 @@
 import UIKit
 import CoreData
 
-
 class DatabaseHandler {
     
     static let shared = DatabaseHandler()
@@ -21,14 +20,13 @@ class DatabaseHandler {
         
         return object
     }
-    
-    
+        
     func fetch<T: NSManagedObject>(_ type: T.Type) -> [T] {
         let request = T.fetchRequest()
         request.returnsObjectsAsFaults = false
         do {
-            let result = try context.fetch(request)
-            return result as! [T]
+            guard let result = try context.fetch(request) as? [T] else {return []}
+            return result
         } catch {
             print(error.localizedDescription)
             return []
@@ -47,6 +45,5 @@ class DatabaseHandler {
         context.delete(data)
         save()
     }
-    
-    
+        
 }

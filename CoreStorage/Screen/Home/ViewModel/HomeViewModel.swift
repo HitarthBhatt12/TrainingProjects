@@ -36,8 +36,7 @@ class HomeViewModel {
             }
         }
     }
-    
-    
+        
     func fetchLocalData() {
         let newsResult = DatabaseHandler.shared.fetch(NewsData.self)
         let articleResult = DatabaseHandler.shared.fetch(NewsArticle.self)
@@ -45,12 +44,5 @@ class HomeViewModel {
         newsData = newsResult
         print(newsArticles?.count ?? 0)
     }
-    
-    
-    
-    func deleteArticle() {
-        
-    }
-    
     
 }

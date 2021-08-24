@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 typealias UserModel = [UserData]
 
 struct UserData: Codable {

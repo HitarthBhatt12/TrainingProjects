@@ -5,10 +5,8 @@
 //  Created by Hitarth Bhatt on 03/08/21.
 //
 
-
 import Foundation
 import SDWebImage
-
 
 // MARK: - Welcome
 struct NewsModel: Codable {
@@ -54,24 +52,17 @@ struct Article: Codable {
         
     }
     
-    
     func checkAvail(availData: [NewsArticle], value: String) -> Bool {
-        for data in availData {
-            if data.title == title {
-                return true
-            }
+        for data in availData where data.title == title {
+            return true
         }
         return false
     }
     
-    
     func urlToData(url: String) -> Data? {
         if let stringUrl = URL(string: url), let data = try? Data(contentsOf: stringUrl) {
-                return data
-            }
-        return Data()
+            return data
         }
-    
+        return Data()
+    }
 }
-
-

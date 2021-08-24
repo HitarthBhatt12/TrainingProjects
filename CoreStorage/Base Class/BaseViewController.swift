@@ -28,14 +28,12 @@ class BaseViewController: UIViewController, Storyboarded {
         setupNavBar()
         
     }
-    
-    
+        
     func setupNavBar() {
         self.navigationController?.navigationBar.barTintColor = .black
         self.navigationController?.navigationBar.tintColor = .white
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-    
-    
+
 }// End of Class

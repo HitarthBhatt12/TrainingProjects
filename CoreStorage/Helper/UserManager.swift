@@ -13,7 +13,8 @@ class UserManager {
     static let shared = UserManager()
     
     var context: NSManagedObjectContext {
-     return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        guard let delegate = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {return NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)}
+     return delegate
     }
     
 }

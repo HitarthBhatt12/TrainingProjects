@@ -11,7 +11,7 @@ class Dynamic<T> {
     
     // MARK: - Typealias
     
-    typealias Listener = (T) -> ()
+    typealias Listener = (T) -> Void
     
     // MARK: - Vars & Lets
     

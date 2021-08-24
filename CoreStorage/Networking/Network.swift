@@ -41,7 +41,6 @@ class Network {
         }
     }
     
-    
     func createUser(param: Parameters, completion: @escaping ResponseModel<UserData>) {
         Network.shared.performRequest(APIRouter.createUser(param: param), completion: completion)
         }
