@@ -9,7 +9,7 @@ target 'CoreStorage' do
 
 pod 'SDWebImage', '~> 5.0'
 pod 'Alamofire', '~> 5.4'
-pod 'RealmSwift'
 pod 'FMDB', '2.7.5'
+pod 'SwiftLint'
 
 end
